@@ -1,2 +1,2 @@
 # Ptraticando_Angular_STACKX
- Aulas práticas
+ Práticas do módulo Web 3.0
