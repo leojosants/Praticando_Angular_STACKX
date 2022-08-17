@@ -10,8 +10,29 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 })
 
 export class ModalComponent {
-  message: string = "";
-  cancelButtonText = "Cancel";
+
+  userData = {
+    gender: '',
+
+    name: {
+      title: '',
+      first: '',
+      last: '',
+    },
+
+    email: '',
+
+    dob: {
+      date: '',
+      age: 0,
+    },
+
+    cell: '',
+
+    picture: {
+      thumbnail: ''
+    },
+  };
 
   constructor(
 
@@ -19,7 +40,7 @@ export class ModalComponent {
     private dialogRef: MatDialogRef<ModalComponent>) {
 
     if (data) {
-      console.log(data);
+      this.userData = data.userData;
     }
   }
 

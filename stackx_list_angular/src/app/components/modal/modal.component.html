@@ -9,14 +9,14 @@
 
   <div class="modal-content">
     <div class="image-user">
-      <img src="https://github.com/leojosants.png" alt="Imagem perfil" />
+      <img [src]="userData.picture.thumbnail" title="Imagem" />
     </div>
 
     <div class="info-user-modal">
-      <p><strong>Nome: </strong>Leonardo Santos</p>
-      <p><strong>E-mail: </strong>leonardojosantos@gmail.com</p>
-      <p><strong>Celular: </strong>32999447711</p>
-      <p><strong>Idade: </strong>38 anos</p>
+      <p><strong>Nome: </strong>{{ userData.name.first }} {{ userData.name.last }}</p>
+      <p><strong>E-mail: </strong>{{ userData.email }}</p>
+      <p><strong>Celular: </strong>{{ userData.cell }}</p>
+      <p><strong>Idade: </strong>{{ userData.dob.age }} anos</p>
     </div>
   </div>
 </div>

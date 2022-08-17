@@ -1,6 +1,8 @@
 <!--  -->
 
 <div class="container-home">
+  <app-navbar></app-navbar>
+
     <div class="content-home">
       <h1>Lista de alunos do curso</h1>
 
@@ -43,7 +45,7 @@
               <td>{{ user.nat }}</td>
 
               <td>
-                <button (click)="openModal()">Visualizar</button>
+                <button (click)="openModal(user)">Visualizar</button>
               </td>
             </tr>
           </tbody>
