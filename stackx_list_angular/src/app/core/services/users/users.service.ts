@@ -16,7 +16,7 @@ export class UsersService {
   ) { }
 
   getUsers(quantityUsers: string) : Observable<any> {
-    return this.http.get(`${environment.userApiUrl}?results=30${quantityUsers}`);
+    return this.http.get(`${environment.userApiUrl}?results=${quantityUsers}`);
   }
 
 }

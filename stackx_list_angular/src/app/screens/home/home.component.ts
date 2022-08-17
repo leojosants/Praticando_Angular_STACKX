@@ -1,11 +1,11 @@
 //
 
 import { Component, OnInit } from '@angular/core';
-import { IUserData } from '../../shared/models/dataUser';
-import { UsersService } from '../../core/services/users/users.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { UsersService } from 'src/app/core/services/users/users.service';
+import { IUserData } from 'src/app/shared/models/dataUser';
 import { ModalComponent } from '../../components/modal/modal.component';
-import { MatDialog } from '@angular/material/dialog';
-import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -20,16 +20,15 @@ export class HomeComponent implements OnInit {
   filter: any = '';
   typeFilter = '';
 
+  searchForm = new FormGroup({
+    nameStudent: new FormControl(''),
+    nationality: new FormControl(''),
+  });
 
   constructor(
     private matDiaLog: MatDialog,
     private userService: UsersService
   ) { }
-
-  searchForm = new FormGroup({
-    nameStudent: new FormControl(''),
-    nationality: new FormControl(''),
-  })
 
   ngOnInit(): void {
     this.getUser()
@@ -65,7 +64,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  searchValue(type: string) {
+  searchName(type: string) {
     this.typeFilter = type;
     this.filter = type === 'name' ? this.searchForm.get('nameStudent')!.value : this.searchForm.get('nationality')!.value;
   }

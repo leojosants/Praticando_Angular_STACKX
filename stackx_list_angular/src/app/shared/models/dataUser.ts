@@ -1,4 +1,5 @@
 //
+
 export type IUserData = {
   gender: string;
   name: NamePerson;

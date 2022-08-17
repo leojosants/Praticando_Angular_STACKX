@@ -15,17 +15,17 @@
               id="nome"
               placeholder="Nome do aluno"
               formControlName="nameStudent"
-              (keyup)="searchValue('name')"
+              (keyup)="searchName('name')"
             />
           </div>
           <div>
-            <label htmFor="nascionalidade">Nascionalidade</label>
+            <label htmlFor="nascionalidade">Nascionalidade</label>
             <select
               name="nascionalidade"
               id="nascionalidade"
               title="."
               formControlName="nacionality"
-              (change)="seachValue('nation')"
+              (change)="searchName('nation')"
             >
               <option value="">Todas</option>
               <ng-container *ngFor="let nation of dataUser">

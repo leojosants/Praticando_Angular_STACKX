@@ -1,7 +1,8 @@
 //
 
-import { Component, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
+import { IUserData } from 'src/app/shared/models/dataUser';
 
 @Component({
   selector: 'app-modal',
