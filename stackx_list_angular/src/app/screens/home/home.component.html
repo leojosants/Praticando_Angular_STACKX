@@ -15,6 +15,7 @@
               id="nome"
               placeholder="Nome do aluno"
               formControlName="nameStudent"
+              (keyup)="searchValue('name')"
             />
           </div>
           <div>
@@ -24,6 +25,7 @@
               id="nascionalidade"
               title="."
               formControlName="nacionality"
+              (change)="seachValue('nation')"
             >
               <option value="">Todas</option>
               <ng-container *ngFor="let nation of dataUser">
@@ -46,7 +48,7 @@
           </thead>
 
           <tbody>
-            <tr *ngFor="let user of dataUser">
+            <tr *ngFor="let user of (dataUser | arrayFiltro : filter : typeFilter)">
               <td>{{ user.name.first }} {{ user.name.last }}</td>
               <td>{{ user.gender }}</td>
               <td>{{ user.location.country }}</td>

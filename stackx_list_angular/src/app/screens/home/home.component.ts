@@ -17,6 +17,9 @@ export class HomeComponent implements OnInit {
   loading =  true;
   error = false;
   dataUser: IUserData[] = [];
+  filter: any = '';
+  typeFilter = '';
+
 
   constructor(
     private matDiaLog: MatDialog,
@@ -60,6 +63,11 @@ export class HomeComponent implements OnInit {
         userData: userSelected
       },
     });
+  }
+
+  searchValue(type: string) {
+    this.typeFilter = type;
+    this.filter = type === 'name' ? this.searchForm.get('nameStudent')!.value : this.searchForm.get('nationality')!.value;
   }
 
 }
