@@ -26,25 +26,37 @@
       </div>
 
       <table class="table-content">
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Sexo</th>
-            <th>Nascionalidade</th>
-            <th>Ação</th>
-          </tr>
-        </thead>
+        <ng-container *ngIf="!loading && !error">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Sexo</th>
+              <th>Nascionalidade</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
 
-        <tbody>
-          <tr>
-            <td>Leonardo Santos</td>
-            <td>Masculino</td>
-            <td>Brasileiro</td>
-            <td>
-              <button>Visualizar</button>
-            </td>
-          </tr>
-        </tbody>
+          <tbody>
+            <tr *ngFor="let user of dataUser">
+              <td>{{ user.name.first }} {{ user.name.last }}</td>
+              <td>{{ user.gender }}</td>
+              <td>{{ user.nat }}</td>
+
+              <td>
+                <button (click)="openModal()">Visualizar</button>
+              </td>
+            </tr>
+          </tbody>
+        </ng-container>
+
+        <ng-container *ngIf="loading">
+          <p>Carregando...</p>
+        </ng-container>
+
+        <ng-container *ngIf="!loading && error">
+          <h1>Ops! Algo deu errado.</h1>
+          <button>Recarregar!</button>
+        </ng-container>
       </table>
     </div>
 </div>
