@@ -6,26 +6,33 @@
     <div class="content-home">
       <h1>Lista de alunos do curso</h1>
 
-      <div class="filter-form">
-        <div>
-          <label htmlFor="nome">Pesquisar</label>
-          <input
-            type="text"
-            id="nome"
-            placeholder="Nome do aluno"
-          />
+      <form [formGroup]="searchForm">
+        <div class="filter-form">
+          <div>
+            <label htmlFor="nome">Pesquisar</label>
+            <input
+              type="text"
+              id="nome"
+              placeholder="Nome do aluno"
+              formControlName="nameStudent"
+            />
+          </div>
+          <div>
+            <label htmFor="nascionalidade">Nascionalidade</label>
+            <select
+              name="nascionalidade"
+              id="nascionalidade"
+              title="."
+              formControlName="nacionality"
+            >
+              <option value="">Todas</option>
+              <ng-container *ngFor="let nation of dataUser">
+                <option [value]="nation.location.country">{{nation.location.country}}</option>
+              </ng-container>
+            </select>
+          </div>
         </div>
-        <div>
-          <label htmFor="nascionalidade">Nascionalidade</label>
-          <select
-            name="nascionalidade"
-            id="nascionalidade"
-            title="."
-          >
-            <option value="">Todas</option>
-          </select>
-        </div>
-      </div>
+      </form>
 
       <table class="table-content">
         <ng-container *ngIf="!loading && !error">
@@ -42,7 +49,7 @@
             <tr *ngFor="let user of dataUser">
               <td>{{ user.name.first }} {{ user.name.last }}</td>
               <td>{{ user.gender }}</td>
-              <td>{{ user.nat }}</td>
+              <td>{{ user.location.country }}</td>
 
               <td>
                 <button (click)="openModal(user)">Visualizar</button>
